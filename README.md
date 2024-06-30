@@ -10,7 +10,7 @@ Follow these steps to set up the project:
 
 1. **Clone the Repository**
    ```sh
-   git clone <repository_url>
+   git clone https://github.com/EnspiredjackDev/torrent-tracker
    ```
 
 2. **Build OpenTracker**
