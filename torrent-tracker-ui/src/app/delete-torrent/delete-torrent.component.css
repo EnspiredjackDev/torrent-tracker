@@ -1,0 +1,20 @@
+.mat-card {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .delete-form mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  button {
+    margin-top: 20px;
+  }
+  

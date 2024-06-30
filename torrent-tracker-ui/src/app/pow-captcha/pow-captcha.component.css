@@ -1,0 +1,26 @@
+.pow-captcha {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px 0;
+    text-align: center;
+  }
+  
+  .captcha-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  
+  .captcha-box label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .captcha-box input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  .spinner-size {
+    transform: scale(0.3);
+  }

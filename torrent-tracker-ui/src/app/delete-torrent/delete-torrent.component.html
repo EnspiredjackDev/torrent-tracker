@@ -1,0 +1,24 @@
+<form [formGroup]="deleteForm" (ngSubmit)="onSubmit()" class="delete-form">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Delete Torrent</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field appearance="fill">
+          <mat-label>Info Hash</mat-label>
+          <input matInput formControlName="info_hash" placeholder="Info Hash">
+          <mat-error *ngIf="deleteForm.get('info_hash')?.errors?.['required']">Info hash is required.</mat-error>
+        </mat-form-field>
+      
+        <mat-form-field appearance="fill">
+          <mat-label>Delete Key</mat-label>
+          <input matInput formControlName="delete_key" placeholder="Delete Key">
+          <mat-error *ngIf="deleteForm.get('delete_key')?.errors?.['required']">Delete key is required.</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!deleteForm.valid">Delete Torrent</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+  

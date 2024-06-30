@@ -1,0 +1,33 @@
+.mat-card {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.torrent-form mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  margin-top: 20px;
+}
+
+.delete-key {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.delete-key p {
+  margin: 0;
+  font-weight: bold;
+}

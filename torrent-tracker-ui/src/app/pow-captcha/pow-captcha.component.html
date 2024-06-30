@@ -1,0 +1,20 @@
+<div class="pow-captcha">
+    <mat-card>
+      <mat-card-content>
+        <p>Solve this <a href="https://search.brave.com/help/pow-captcha">PoW Captcha</a> to prove you are human:</p>
+        <div class="captcha-box">
+          <ng-container *ngIf="!solving; else solvingTemplate">
+            <mat-checkbox [checked]="solved" [disabled]="solved" (change)="fetchPoWChallenge()">
+              I am not a robot
+            </mat-checkbox>
+          </ng-container>
+          <ng-template #solvingTemplate>
+            <mat-progress-spinner mode="indeterminate" class="spinner-size"></mat-progress-spinner>
+            <p>Solving challenge, please wait...</p>
+          </ng-template>
+        </div>
+        <p *ngIf="solved">CAPTCHA solved! This is only valid for the next 5 mins.</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

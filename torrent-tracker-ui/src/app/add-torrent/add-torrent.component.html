@@ -1,0 +1,49 @@
+<form [formGroup]="torrentForm" (ngSubmit)="onSubmit()" class="torrent-form">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Add Torrent</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Magnet Link</mat-label>
+        <input matInput formControlName="magnet_link" placeholder="Magnet URI">
+        <mat-error *ngIf="torrentForm.get('magnet_link')?.errors?.['required']">Magnet link is required.</mat-error>
+      </mat-form-field>
+
+      <div class="magnet-link-requirements">
+        <h3>Magnet Link Information</h3>
+        <ul>
+          <li>Must be tracked by http://YOUR_URL:6969/announce</li>
+          <li>Name of torrent is the name that will be displayed</li>
+          <li>Delete key will be displayed at the bottom of the page</li>
+        </ul>
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" maxlength="200"></textarea>
+        <mat-hint align="end">{{torrentForm.get('description')?.value?.length || 0}} / 200</mat-hint>
+        <mat-error *ngIf="torrentForm.get('description')?.errors?.['maxlength']">
+          Description cannot exceed 200 characters.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category" multiple>
+          <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <app-pow-captcha (powSolved)="onPoWSolved($event)"></app-pow-captcha>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!torrentForm.valid || !powSolved">Add Torrent</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+<div *ngIf="deleteKey" class="delete-key">
+  <p>Your delete key is: {{deleteKey}}</p>
+  <p>Please save this key to delete the torrent in the future.</p>
+</div>
